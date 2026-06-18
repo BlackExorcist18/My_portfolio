@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nancy.engine &mdash; документация Система тестирования 1.0</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=9ca2116e"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/translations.js?v=9bfe3ffa"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Система тестирования
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Содержание:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">Модули проекта</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Система тестирования</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Код модуля</a></li>
+      <li class="breadcrumb-item active">nancy.engine</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Исходный код nancy.engine</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Модуль основной логики тестирования.</span>
+
+<span class="sd">Содержит класс QuizEngine, который управляет процессом </span>
+<span class="sd">прохождения тестов, проверкой ответов и подсчетом результатов.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Optional</span>
+
+
+<div class="viewcode-block" id="QuizEngine">
+<a class="viewcode-back" href="../../nancy.html#nancy.engine.QuizEngine">[документация]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">QuizEngine</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Движок для управления процессом тестирования.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">        tests (List[Dict[str, Any]]): Список всех доступных тестов.</span>
+<span class="sd">        current_test (Dict[str, Any]): Текущий выбранный тест.</span>
+<span class="sd">        current_questions (List[Dict[str, Any]]): Вопросы текущего теста.</span>
+<span class="sd">        score (int): Количество правильных ответов.</span>
+<span class="sd">        total_questions (int): Общее количество вопросов в тесте.</span>
+<span class="sd">        current_question_index (int): Индекс текущего вопроса.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tests</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Инициализирует движок тестирования.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            tests (List[Dict[str, Any]]): Список тестов для инициализации.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tests</span> <span class="o">=</span> <span class="n">tests</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_test</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_questions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">total_questions</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_question_index</span> <span class="o">=</span> <span class="mi">0</span>
+    
+<div class="viewcode-block" id="QuizEngine.list_tests">
+<a class="viewcode-back" href="../../nancy.html#nancy.engine.QuizEngine.list_tests">[документация]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_tests</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Получает список названий доступных тестов.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            List[str]: Список названий тестов.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">test</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">test</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tests</span><span class="p">]</span></div>
+
+    
+<div class="viewcode-block" id="QuizEngine.select_test">
+<a class="viewcode-back" href="../../nancy.html#nancy.engine.QuizEngine.select_test">[документация]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">select_test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">test_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Выбирает тест по имени для прохождения.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            test_name (str): Название теста для выбора.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True если тест найден и выбран, False в противном случае.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">test</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tests</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">test_name</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">current_test</span> <span class="o">=</span> <span class="n">test</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">current_questions</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;questions&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+                <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+    
+<div class="viewcode-block" id="QuizEngine.shuffle_questions">
+<a class="viewcode-back" href="../../nancy.html#nancy.engine.QuizEngine.shuffle_questions">[документация]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">shuffle_questions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Перемешивает вопросы и выбирает указанное количество.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            count (int, optional): Количество вопросов для выбора. </span>
+<span class="sd">                                Если None, используются все вопросы.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_questions</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">count</span> <span class="ow">and</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_questions</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">current_questions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_questions</span><span class="p">[:</span><span class="n">count</span><span class="p">]</span></div>
+
+    
+<div class="viewcode-block" id="QuizEngine.start_quiz">
+<a class="viewcode-back" href="../../nancy.html#nancy.engine.QuizEngine.start_quiz">[документация]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">start_quiz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shuffle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">question_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Начинает процесс тестирования.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            shuffle (bool): Нужно ли перемешивать вопросы. По умолчанию True.</span>
+<span class="sd">            question_count (int, optional): Количество вопросов для теста.</span>
+<span class="sd">            </span>
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: Если тест не был выбран перед началом.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_test</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Тест не выбран&quot;</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">shuffle</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">shuffle_questions</span><span class="p">(</span><span class="n">question_count</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">question_count</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">current_questions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_questions</span><span class="p">[:</span><span class="n">question_count</span><span class="p">]</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">total_questions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_questions</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_question_index</span> <span class="o">=</span> <span class="mi">0</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Начинаем тест: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">current_test</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Количество вопросов: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">total_questions</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="QuizEngine.get_next_question">
+<a class="viewcode-back" href="../../nancy.html#nancy.engine.QuizEngine.get_next_question">[документация]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_next_question</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">int</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Получает следующий вопрос из текущего теста.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Optional[Tuple[str, List[str], int]]: Кортеж (вопрос, варианты ответов, </span>
+<span class="sd">                                                индекс правильного ответа) </span>
+<span class="sd">                                                или None если вопросы закончились.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_question_index</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_questions</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        
+        <span class="n">question_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_questions</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">current_question_index</span><span class="p">]</span>
+        <span class="n">question</span> <span class="o">=</span> <span class="n">question_data</span><span class="p">[</span><span class="s1">&#39;question&#39;</span><span class="p">]</span>
+        <span class="n">options</span> <span class="o">=</span> <span class="n">question_data</span><span class="p">[</span><span class="s1">&#39;options&#39;</span><span class="p">]</span>
+        <span class="n">correct_answer</span> <span class="o">=</span> <span class="n">question_data</span><span class="p">[</span><span class="s1">&#39;correct_answer&#39;</span><span class="p">]</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_question_index</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">question</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">correct_answer</span></div>
+
+    
+<div class="viewcode-block" id="QuizEngine.check_answer">
+<a class="viewcode-back" href="../../nancy.html#nancy.engine.QuizEngine.check_answer">[документация]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_answer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_answer</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">correct_answer</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Проверяет ответ пользователя.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            user_answer (int): Индекс ответа, выбранного пользователем.</span>
+<span class="sd">            correct_answer (int): Индекс правильного ответа.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True если ответ правильный, False в противном случае.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">is_correct</span> <span class="o">=</span> <span class="n">user_answer</span> <span class="o">==</span> <span class="n">correct_answer</span>
+        <span class="k">if</span> <span class="n">is_correct</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">is_correct</span></div>
+
+    
+<div class="viewcode-block" id="QuizEngine.get_progress">
+<a class="viewcode-back" href="../../nancy.html#nancy.engine.QuizEngine.get_progress">[документация]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_progress</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Получает текущий прогресс прохождения теста.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Tuple[int, int]: Текущий номер вопроса и общее количество вопросов.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_question_index</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">total_questions</span></div>
+
+    
+<div class="viewcode-block" id="QuizEngine.get_results">
+<a class="viewcode-back" href="../../nancy.html#nancy.engine.QuizEngine.get_results">[документация]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Подсчитывает и возвращает результаты тестирования.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Dict[str, Any]: Словарь с результатами теста, содержащий:</span>
+<span class="sd">                - test_name: название теста</span>
+<span class="sd">                - score: количество правильных ответов</span>
+<span class="sd">                - total_questions: общее количество вопросов</span>
+<span class="sd">                - percentage: процент правильных ответов</span>
+<span class="sd">                - passed: пройден ли тест (&gt;= 70%)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">percentage</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">total_questions</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">total_questions</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+        
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;test_name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_test</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">score</span><span class="p">,</span>
+            <span class="s1">&#39;total_questions&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">total_questions</span><span class="p">,</span>
+            <span class="s1">&#39;percentage&#39;</span><span class="p">:</span> <span class="n">percentage</span><span class="p">,</span>
+            <span class="s1">&#39;passed&#39;</span><span class="p">:</span> <span class="n">percentage</span> <span class="o">&gt;=</span> <span class="mi">70</span>
+        <span class="p">}</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Авторские права 2025, Exorcist. </p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
