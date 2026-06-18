@@ -1,0 +1,106 @@
+[
+  {
+    "name": "Основы Python",
+    "description": "Тест по основам программирования на Python",
+    "questions": [
+      {
+        "question": "Какой оператор используется для проверки равенства в Python?",
+        "options": [
+          "=",
+          "==",
+          "===",
+          "equals"
+        ],
+        "correct_answer": 1
+      },
+      {
+        "question": "Как создать пустой список в Python?",
+        "options": [
+          "[]",
+          "list()",
+          "{}",
+          "и [] и list()"
+        ],
+        "correct_answer": 3
+      },
+      {
+        "question": "Что выведет print(type(5))?",
+        "options": [
+          "<class 'int'>",
+          "<class 'float'>",
+          "<class 'number'>",
+          "<class 'integer'>"
+        ],
+        "correct_answer": 0
+      }
+    ]
+  },
+  {
+    "name": "Математика для начинающих",
+    "description": "Простой тест по математике",
+    "questions": [
+      {
+        "question": "Сколько будет 2 + 2 * 2?",
+        "options": [
+          "6",
+          "8",
+          "4",
+          "10"
+        ],
+        "correct_answer": 0
+      },
+      {
+        "question": "Чему равен квадратный корень из 64?",
+        "options": [
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        "correct_answer": 2
+      }
+    ]
+  },
+  {
+    "name": "Математика",
+    "description": "Тест по таблице умножения",
+    "questions": [
+      {
+        "question": "Сколько будет 4 * 9?",
+        "options": [
+          "32",
+          "45",
+          "36",
+          "40"
+        ],
+        "correct_answer": 2
+      },
+      {
+        "question": "Сколько бдует 7*4?",
+        "options": [
+          "31",
+          "28",
+          "34",
+          "24"
+        ],
+        "correct_answer": 1
+      }
+    ]
+  },
+  {
+    "name": "Test",
+    "description": "test1",
+    "questions": [
+      {
+        "question": "1",
+        "options": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "correct_answer": 2
+      }
+    ]
+  }
+]
