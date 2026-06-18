@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Расписание курсов{% endblock %}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        /* Navigation */
+        .nav {
+            background: #2d3748;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 25px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .nav a:hover {
+            background: #667eea;
+        }
+        
+        .nav .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .nav .dropdown-content {
+            display: none;
+            position: absolute;
+            background: #2d3748;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .nav .dropdown-content a {
+            display: block;
+            padding: 12px 25px;
+        }
+        
+        /* Main content */
+        .main {
+            padding: 30px;
+            min-height: 500px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        /* Messages */
+        .messages {
+            margin-bottom: 20px;
+        }
+        
+        .alert {
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .alert-success {
+            background: #48bb78;
+            color: white;
+        }
+        
+        .alert-error {
+            background: #f56565;
+            color: white;
+        }
+        
+        .alert-warning {
+            background: #ed8936;
+            color: white;
+        }
+        
+        .alert-info {
+            background: #4299e1;
+            color: white;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+            margin: 5px;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+        
+        .btn-danger {
+            background: #f56565;
+            color: white;
+        }
+        
+        .btn-warning {
+            background: #ed8936;
+            color: white;
+        }
+        
+        .btn-success {
+            background: #48bb78;
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: #718096;
+            color: white;
+        }
+        
+        /* Cards */
+        .card {
+            background: #f7fafc;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        /* Forms */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .errorlist {
+            color: #f56565;
+            list-style: none;
+            margin-top: 5px;
+        }
+        
+        /* Table */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .table th,
+        .table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .table th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📚 Система управления расписанием</h1>
+            <p>Управление преподавателями, курсами и студентами</p>
+        </header>
+        
+        <nav class="nav">
+            <a href="{% url 'schedule:teacher_index' %}">👨‍🏫 Преподаватели</a>
+            <a href="{% url 'schedule:course_index' %}">📖 Курсы</a>
+            <a href="{% url 'schedule:student_index' %}">🎓 Студенты</a>
+            <div class="dropdown">
+                <a href="#">➕ Создать ▼</a>
+                <div class="dropdown-content">
+                    <a href="{% url 'schedule:teacher_create' %}">➕ Преподавателя</a>
+                    <a href="{% url 'schedule:course_create' %}">➕ Курс</a>
+                    <a href="{% url 'schedule:student_create' %}">➕ Студента</a>
+                </div>
+            </div>
+            {% if user.is_authenticated %}
+                <a href="{% url 'users:profile' %}">👤 {{ user.username }}</a>
+                <a href="{% url 'users:logout' %}">🚪 Выйти</a>
+            {% else %}
+                <a href="{% url 'users:login' %}">🔑 Войти</a>
+                <a href="{% url 'users:register' %}">📝 Регистрация</a>
+            {% endif %}
+        </nav>
+        
+        <main class="main">
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            {% block content %}
+            {% endblock %}
+        </main>
+        
+        <footer class="footer">
+            <p>© 2024 Система управления расписанием | Django MVT</p>
+        </footer>
+    </div>
+</body>
+</html>

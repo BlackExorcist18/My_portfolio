@@ -1,0 +1,27 @@
+{% extends 'schedule/base.html' %}
+
+{% block title %}Студенты - Расписание курсов{% endblock %}
+
+{% block content %}
+<h2>🎓 Студенты</h2>
+<a href="{% url 'schedule:student_create' %}" class="btn btn-primary">➕ Добавить студента</a>
+
+<div class="grid" style="margin-top: 20px;">
+    {% for student in students %}
+    <div class="card">
+        <h3>{{ student.full_name }}</h3>
+        <p><strong>Email:</strong> {{ student.email }}</p>
+        <p><strong>Телефон:</strong> {{ student.phone|default:"-" }}</p>
+        <p><strong>Курсов:</strong> {{ student.courses.count }}</p>
+        <p><strong>Статус:</strong> {% if student.is_active %}✅ Активен{% else %}❌ Неактивен{% endif %}</p>
+        <div style="margin-top: 15px;">
+            <a href="{% url 'schedule:student_detail' student.id %}" class="btn btn-primary">👁️ Просмотр</a>
+            <a href="{% url 'schedule:student_update' student.id %}" class="btn btn-warning">✏️ Редактировать</a>
+            <a href="{% url 'schedule:student_delete' student.id %}" class="btn btn-danger">🗑️ Удалить</a>
+        </div>
+    </div>
+    {% empty %}
+    <p>Нет студентов.</p>
+    {% endfor %}
+</div>
+{% endblock %}

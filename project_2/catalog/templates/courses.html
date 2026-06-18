@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог курсов - Все курсы</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            padding: 5px 10px;
+        }
+        nav a:hover {
+            background-color: #555;
+            border-radius: 3px;
+        }
+        .course-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .course-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            transition: transform 0.2s;
+        }
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .course-card h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .course-card p {
+            color: #666;
+        }
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #999;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 3px;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="index">Главная</a>
+            <a href="courses">Курсы</a>
+            <a href="authors">Авторы</a>
+            <a href="info">Информация</a>
+        </nav>
+
+        <h1>Все курсы</h1>
+        
+        <div class="course-list">
+            {% for course in courses %}
+            <div class="course-card">
+                <h3>{{ course.name }}</h3>
+                <p>{{ course.description|truncatechars:100 }}</p>
+                <div class="course-meta">
+                    <span>Автор: {{ course.author_name }}</span>
+                    <span>Уровень: {{ course.level }}</span>
+                </div>
+                <a href="course_{{ course.id }}" class="btn">Подробнее</a>
+            </div>
+            {% empty %}
+            <p>Курсы временно отсутствуют.</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

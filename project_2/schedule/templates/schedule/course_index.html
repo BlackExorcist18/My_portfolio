@@ -1,0 +1,42 @@
+{% extends 'schedule/base.html' %}
+
+{% block title %}Курсы - Расписание курсов{% endblock %}
+
+{% block content %}
+<h2>📖 Курсы</h2>
+<a href="{% url 'schedule:course_create' %}" class="btn btn-primary">➕ Добавить курс</a>
+
+<div class="card" style="margin-top: 20px;">
+    <h3>Фильтр по преподавателю</h3>
+    <form method="get">
+        <select name="teacher" onchange="this.form.submit()">
+            <option value="">Все преподаватели</option>
+            {% for teacher in teachers %}
+            <option value="{{ teacher.id }}" {% if selected_teacher|stringformat:"s" == teacher.id|stringformat:"s" %}selected{% endif %}>
+                {{ teacher.full_name }}
+            </option>
+            {% endfor %}
+        </select>
+    </form>
+</div>
+
+<div class="grid" style="margin-top: 20px;">
+    {% for course in courses %}
+    <div class="card">
+        <h3>{{ course.name }}</h3>
+        <p><strong>Преподаватель:</strong> {% if course.teacher %}{{ course.teacher.full_name }}{% else %}Не назначен{% endif %}</p>
+        <p><strong>Уровень:</strong> {{ course.get_level_display }}</p>
+        <p><strong>Цена:</strong> {{ course.price }} ₽</p>
+        <p><strong>Длительность:</strong> {{ course.duration_weeks }} недель</p>
+        <p><strong>Статус:</strong> {% if course.is_published %}✅ Опубликован{% else %}❌ Черновик{% endif %}</p>
+        <div style="margin-top: 15px;">
+            <a href="{% url 'schedule:course_detail' course.id %}" class="btn btn-primary">👁️ Просмотр</a>
+            <a href="{% url 'schedule:course_update' course.id %}" class="btn btn-warning">✏️ Редактировать</a>
+            <a href="{% url 'schedule:course_delete' course.id %}" class="btn btn-danger">🗑️ Удалить</a>
+        </div>
+    </div>
+    {% empty %}
+    <p>Нет курсов.</p>
+    {% endfor %}
+</div>
+{% endblock %}

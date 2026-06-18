@@ -1,0 +1,45 @@
+{% extends 'schedule/base.html' %}
+
+{% block title %}{{ viewed_user.username }}{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center;">
+    <h2>👤 {{ viewed_user.username }}</h2>
+    
+    {% if user.is_authenticated and user != viewed_user %}
+        {% if user.is_friend %}
+            <a href="{% url 'users:remove_friend' viewed_user.id %}" class="btn btn-danger">❌ Удалить из друзей</a>
+        {% else %}
+            <a href="{% url 'users:add_friend' viewed_user.id %}" class="btn btn-success">➕ Добавить в друзья</a>
+        {% endif %}
+    {% endif %}
+</div>
+
+<div class="grid">
+    <div class="card">
+        <h3>Основная информация</h3>
+        <table class="table">
+            <tr><th>Username:</th><td>{{ viewed_user.username }}</td></tr>
+            <tr><th>Email:</th><td>{{ viewed_user.email }}</td></tr>
+            <tr><th>Телефон:</th><td>{{ viewed_user.phone|default:"-" }}</td></tr>
+            <tr><th>Дата рождения:</th><td>{{ viewed_user.birth_date|date:"d.m.Y"|default:"-" }}</td></tr>
+        </table>
+    </div>
+    
+    <div class="card">
+        <h3>О себе</h3>
+        <p>{{ viewed_user.bio|default:"Не указано" }}</p>
+    </div>
+    
+    <div class="card">
+        <h3>Друзья {{ viewed_user.username }} ({{ viewed_user.friends.count }})</h3>
+        {% for friend in viewed_user.friends.all %}
+            <a href="{% url 'users:user_detail' friend.id %}">{{ friend.username }}</a>{% if not forloop.last %}, {% endif %}
+        {% empty %}
+            <p>У пользователя пока нет друзей.</p>
+        {% endfor %}
+    </div>
+</div>
+
+<a href="{% url 'users:user_list' %}" class="btn btn-secondary">← Назад к списку</a>
+{% endblock %}

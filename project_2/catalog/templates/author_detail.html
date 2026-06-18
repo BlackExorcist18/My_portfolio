@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ author.name }} - Каталог курсов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            padding: 5px 10px;
+        }
+        nav a:hover {
+            background-color: #555;
+            border-radius: 3px;
+        }
+        .author-header {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .author-avatar-large {
+            width: 150px;
+            height: 150px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+        }
+        .author-bio {
+            flex: 1;
+        }
+        .courses-list {
+            margin-top: 30px;
+        }
+        .course-item {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .btn-back {
+            display: inline-block;
+            background-color: #666;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 3px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="index">Главная</a>
+            <a href="courses">Курсы</a>
+            <a href="authors">Авторы</a>
+            <a href="info">Информация</a>
+        </nav>
+
+        <div class="author-header">
+            <div class="author-avatar-large">
+                {{ author.name|slice:":1" }}
+            </div>
+            <div class="author-bio">
+                <h1>{{ author.name }}</h1>
+                <p><strong>Специализация:</strong> {{ author.specialization }}</p>
+                <p><strong>Опыт:</strong> {{ author.experience }}</p>
+                <p><strong>Email:</strong> {{ author.email }}</p>
+                <p>{{ author.bio }}</p>
+            </div>
+        </div>
+
+        <div class="courses-list">
+            <h2>Курсы автора</h2>
+            {% for course in author.courses %}
+            <div class="course-item">
+                <h3>{{ course.name }}</h3>
+                <p>{{ course.description|truncatechars:150 }}</p>
+                <a href="course_{{ course.id }}">Подробнее о курсе →</a>
+            </div>
+            {% empty %}
+            <p>У автора пока нет курсов.</p>
+            {% endfor %}
+        </div>
+
+        <a href="authors" class="btn-back">← Назад к списку авторов</a>
+    </div>
+</body>
+</html>

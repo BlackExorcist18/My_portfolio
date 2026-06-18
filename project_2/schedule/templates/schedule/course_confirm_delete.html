@@ -1,0 +1,17 @@
+{% extends 'schedule/base.html' %}
+
+{% block title %}Удаление курса{% endblock %}
+
+{% block content %}
+<div class="card" style="text-align: center; max-width: 500px; margin: 0 auto;">
+    <h2>🗑️ Удаление курса</h2>
+    <p>Вы уверены, что хотите удалить курс <strong>"{{ course.name }}"</strong>?</p>
+    <p style="color: red;">⚠️ Внимание! Студенты, записанные на этот курс, будут отписаны автоматически.</p>
+    
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">✅ Да, удалить</button>
+        <a href="{% url 'schedule:course_detail' course.id %}" class="btn btn-secondary">❌ Отмена</a>
+    </form>
+</div>
+{% endblock %}

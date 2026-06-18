@@ -1,0 +1,24 @@
+{% extends 'schedule/base.html' %}
+
+{% block title %}Добавить преподавателя (ModelForm){% endblock %}
+
+{% block content %}
+<h2>➕ Добавить преподавателя (ModelForm)</h2>
+
+<form method="post">
+    {% csrf_token %}
+    
+    <div class="card">
+        <h3>Основная информация</h3>
+        {{ form.as_p }}
+    </div>
+    
+    <div class="card">
+        <h3>Дополнительная информация</h3>
+        {{ info_form.as_p }}
+    </div>
+    
+    <button type="submit" class="btn btn-primary">💾 Сохранить</button>
+    <a href="{% url 'schedule:teacher_index' %}" class="btn btn-secondary">Отмена</a>
+</form>
+{% endblock %}

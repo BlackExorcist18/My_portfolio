@@ -1,0 +1,33 @@
+{% extends 'schedule/base.html' %}
+
+{% block title %}Пользователи{% endblock %}
+
+{% block content %}
+<h2>👥 Все пользователи</h2>
+
+<div class="grid">
+    {% for u in users %}
+    <div class="card">
+        <h3>{{ u.username }}</h3>
+        <p><strong>Email:</strong> {{ u.email }}</p>
+        <p><strong>Друзей:</strong> {{ u.friends.count }}</p>
+        
+        <div style="margin-top: 15px;">
+            <a href="{% url 'users:user_detail' u.id %}" class="btn btn-primary">👁️ Просмотр</a>
+            
+            {% if user.is_authenticated and user != u %}
+                {% if user.is_friend %}
+                    <a href="{% url 'users:remove_friend' u.id %}" class="btn btn-danger">❌ Удалить из друзей</a>
+                {% else %}
+                    <a href="{% url 'users:add_friend' u.id %}" class="btn btn-success">➕ Добавить в друзья</a>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    {% empty %}
+    <p>Нет других пользователей.</p>
+    {% endfor %}
+</div>
+
+<a href="{% url 'users:profile' %}" class="btn btn-secondary">← Назад в профиль</a>
+{% endblock %}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ course.name }} - Каталог курсов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            padding: 5px 10px;
+        }
+        nav a:hover {
+            background-color: #555;
+            border-radius: 3px;
+        }
+        .course-header {
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .course-info {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .course-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .detail-item {
+            padding: 10px;
+            border-left: 3px solid #4CAF50;
+        }
+        .btn-back {
+            display: inline-block;
+            background-color: #666;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 3px;
+            margin-top: 20px;
+        }
+        .btn-back:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="index">Главная</a>
+            <a href="courses">Курсы</a>
+            <a href="authors">Авторы</a>
+            <a href="info">Информация</a>
+        </nav>
+
+        <div class="course-header">
+            <h1>{{ course.name }}</h1>
+            <p>Автор: <a href="author_{{ course.author_id }}">{{ course.author_name }}</a></p>
+        </div>
+
+        <div class="course-info">
+            <h3>Описание курса</h3>
+            <p>{{ course.description }}</p>
+        </div>
+
+        <div class="course-details">
+            <div class="detail-item">
+                <strong>Уровень сложности:</strong> {{ course.level }}
+            </div>
+            <div class="detail-item">
+                <strong>Продолжительность:</strong> {{ course.duration }}
+            </div>
+            <div class="detail-item">
+                <strong>Студентов:</strong> {{ course.students_count }}
+            </div>
+            <div class="detail-item">
+                <strong>Рейтинг:</strong> {{ course.rating }}/5
+            </div>
+        </div>
+
+        <div class="course-info">
+            <h3>Программа курса</h3>
+            <ul>
+                {% for topic in course.topics %}
+                <li>{{ topic }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <a href="courses" class="btn-back">← Назад к списку курсов</a>
+    </div>
+</body>
+</html>

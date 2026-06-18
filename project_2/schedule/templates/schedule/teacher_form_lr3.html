@@ -1,0 +1,70 @@
+{% extends 'schedule/base.html' %}
+
+{% block title %}Добавить преподавателя{% endblock %}
+
+{% block content %}
+<h2>➕ Добавить преподавателя</h2>
+
+<form method="post">
+    {% csrf_token %}
+    
+    <div class="card">
+        <h3>Информация о преподавателе</h3>
+        
+        <div class="form-group">
+            {{ form.first_name.label_tag }}
+            {{ form.first_name }}
+            {{ form.first_name.help_text }}
+            {{ form.first_name.errors }}
+        </div>
+        
+        <div class="form-group">
+            {{ form.last_name.label_tag }}
+            {{ form.last_name }}
+            {{ form.last_name.help_text }}
+            {{ form.last_name.errors }}
+        </div>
+        
+        <div class="form-group">
+            {{ form.email.label_tag }}
+            {{ form.email }}
+            {{ form.email.help_text }}
+            {{ form.email.errors }}
+        </div>
+        
+        <div class="form-group">
+            {{ form.level.label_tag }}
+            {{ form.level }}
+            {{ form.level.help_text }}
+            {{ form.level.errors }}
+        </div>
+        
+        <div class="form-group">
+            {{ form.is_active.label_tag }}
+            {{ form.is_active }}
+            {{ form.is_active.help_text }}
+        </div>
+        
+        <div class="form-group">
+            {{ form.biography.label_tag }}
+            {{ form.biography }}
+            {{ form.biography.help_text }}
+        </div>
+        
+        <div class="form-group">
+            {{ form.education.label_tag }}
+            {{ form.education }}
+            {{ form.education.help_text }}
+        </div>
+        
+        <div class="form-group">
+            {{ form.experience_years.label_tag }}
+            {{ form.experience_years }}
+            {{ form.experience_years.help_text }}
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">💾 Сохранить</button>
+    <a href="{% url 'schedule:teacher_index' %}" class="btn btn-secondary">Отмена</a>
+</form>
+{% endblock %}

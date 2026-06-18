@@ -1,0 +1,17 @@
+{% extends 'schedule/base.html' %}
+
+{% block title %}Удаление студента{% endblock %}
+
+{% block content %}
+<div class="card" style="text-align: center; max-width: 500px; margin: 0 auto;">
+    <h2>🗑️ Удаление студента</h2>
+    <p>Вы уверены, что хотите удалить студента <strong>{{ student.full_name }}</strong>?</p>
+    <p style="color: red;">⚠️ Внимание! Студент будет отписан от всех курсов.</p>
+    
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">✅ Да, удалить</button>
+        <a href="{% url 'schedule:student_detail' student.id %}" class="btn btn-secondary">❌ Отмена</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends 'schedule/base.html' %}
+
+{% block title %}ORM Запросы - Расписание курсов{% endblock %}
+
+{% block content %}
+<h2>🔍 ORM Запросы</h2>
+
+<div class="card">
+    <h3>1️⃣ Все студенты первого курса</h3>
+    <p><strong>Запрос:</strong> <code>first_course.students.all()</code></p>
+    {% if students_of_course %}
+    <table class="table">
+        <thead>
+            <tr><th>ФИО</th><th>Email</th><th>Телефон</th></tr>
+        </thead>
+        <tbody>
+            {% for student in students_of_course %}
+            <tr>
+                <td>{{ student.full_name }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.phone|default:"-" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>Нет студентов на этом курсе.</p>
+    {% endif %}
+</div>
+
+<div class="card">
+    <h3>2️⃣ Преподаватели, у которых больше 1 курса</h3>
+    <p><strong>Запрос:</strong> <code>Teacher.objects.annotate(courses_count=Count('courses')).filter(courses_count__gt=1)</code></p>
+    {% if teachers_with_many_courses %}
+    <table class="table">
+        <thead>
+            <tr><th>ФИО</th><th>Email</th><th>Уровень</th><th>Количество курсов</th></tr>
+        </thead>
+        <tbody>
+            {% for teacher in teachers_with_many_courses %}
+            <tr>
+                <td>{{ teacher.full_name }}</td>
+                <td>{{ teacher.email }}</td>
+                <td>{{ teacher.get_level_display }}</td>
+                <td>{{ teacher.courses.count }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>Нет преподавателей с более чем 1 курсом.</p>
+    {% endif %}
+</div>
+
+<div class="card">
+    <h3>3️⃣ Студенты без курсов</h3>
+    <p><strong>Запрос:</strong> <code>Student.objects.annotate(courses_count=Count('courses')).filter(courses_count=0)</code></p>
+    {% if students_without_courses %}
+    <table class="table">
+        <thead>
+            <tr><th>ФИО</th><th>Email</th><th>Телефон</th><th>Статус</th></tr>
+        </thead>
+        <tbody>
+            {% for student in students_without_courses %}
+            <tr>
+                <td>{{ student.full_name }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.phone|default:"-" }}</td>
+                <td>{% if student.is_active %}Активен{% else %}Неактивен{% endif %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>Все студенты записаны хотя бы на один курс.</p>
+    {% endif %}
+</div>
+
+<div class="card">
+    <h3>4️⃣ Преподаватели без профиля (без TeacherInfo)</h3>
+    <p><strong>Запрос:</strong> <code>Teacher.objects.filter(info__isnull=True)</code></p>
+    {% if teachers_without_profile %}
+    <table class="table">
+        <thead>
+            <tr><th>ФИО</th><th>Email</th><th>Уровень</th><th>Дата найма</th></tr>
+        </thead>
+        <tbody>
+            {% for teacher in teachers_without_profile %}
+            <tr>
+                <td>{{ teacher.full_name }}</td>
+                <td>{{ teacher.email }}</td>
+                <td>{{ teacher.get_level_display }}</td>
+                <td>{{ teacher.hire_date|date:"d.m.Y" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>У всех преподавателей заполнены профили.</p>
+    {% endif %}
+</div>
+
+<a href="{% url 'schedule:teacher_index' %}" class="btn btn-secondary">← Назад</a>
+{% endblock %}

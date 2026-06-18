@@ -1,0 +1,62 @@
+{% extends 'schedule/base.html' %}
+
+{% load static %}
+
+{% block title %}Мой профиль{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+    <h2>👤 {{ user.username }}</h2>
+    <div>
+        <a href="{% url 'users:profile_edit' %}" class="btn btn-warning">✏️ Редактировать</a>
+        <a href="{% url 'users:password_change' %}" class="btn btn-secondary">🔐 Сменить пароль</a>
+    </div>
+</div>
+
+<div class="grid">
+    <div class="card">
+        <h3>Аватар</h3>
+        {% if user.avatar %}
+            <img src="{{ user.avatar.url }}" alt="Avatar" style="max-width: 150px; border-radius: 50%; margin-bottom: 15px;">
+        {% else %}
+            <div style="width: 150px; height: 150px; background: #667eea; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px; margin-bottom: 15px;">
+                {{ user.username|make_list|first|upper }}
+            </div>
+        {% endif %}
+    </div>
+    
+    <div class="card">
+        <h3>Основная информация</h3>
+        <table class="table">
+            <tr><th>Username:</th><td>{{ user.username }}</td></tr>
+            <tr><th>Email:</th><td>{{ user.email }}</td></tr>
+            <tr><th>Телефон:</th><td>{{ user.phone|default:"-" }}</td></tr>
+            <tr><th>Дата рождения:</th><td>{{ user.birth_date|date:"d.m.Y"|default:"-" }}</td></tr>
+        </table>
+    </div>
+    
+    <div class="card">
+        <h3>О себе</h3>
+        <p>{{ user.bio|default:"Не указано" }}</p>
+    </div>
+    
+    <div class="card">
+        <h3>Друзья ({{ user.friends.count }})</h3>
+        {% if user.friends.all %}
+            <ul style="margin-left: 20px;">
+                {% for friend in user.friends.all %}
+                    <li>
+                        <a href="{% url 'users:user_detail' friend.id %}">{{ friend.username }}</a>
+                        <a href="{% url 'users:remove_friend' friend.id %}" style="color: red; margin-left: 10px;">[удалить]</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>У вас пока нет друзей.</p>
+        {% endif %}
+        <a href="{% url 'users:user_list' %}" class="btn btn-primary">🔍 Найти друзей</a>
+    </div>
+</div>
+
+<a href="{% url 'schedule:teacher_index' %}" class="btn btn-secondary">← На главную</a>
+{% endblock %}

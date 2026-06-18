@@ -1,0 +1,27 @@
+{% extends 'schedule/base.html' %}
+
+{% block title %}Преподаватели - Расписание курсов{% endblock %}
+
+{% block content %}
+<h2>👨‍🏫 Преподаватели</h2>
+<a href="{% url 'schedule:teacher_create' %}" class="btn btn-primary">➕ Добавить преподавателя</a>
+
+<div class="grid" style="margin-top: 20px;">
+    {% for teacher in teachers %}
+    <div class="card">
+        <h3>{{ teacher.full_name }}</h3>
+        <p><strong>Email:</strong> {{ teacher.email }}</p>
+        <p><strong>Уровень:</strong> {{ teacher.get_level_display }}</p>
+        <p><strong>Статус:</strong> {% if teacher.is_active %}✅ Активен{% else %}❌ Неактивен{% endif %}</p>
+        <p><strong>Курсов:</strong> {{ teacher.courses.count }}</p>
+        <div style="margin-top: 15px;">
+            <a href="{% url 'schedule:teacher_detail' teacher.id %}" class="btn btn-primary">👁️ Просмотр</a>
+            <a href="{% url 'schedule:teacher_update' teacher.id %}" class="btn btn-warning">✏️ Редактировать</a>
+            <a href="{% url 'schedule:teacher_delete' teacher.id %}" class="btn btn-danger">🗑️ Удалить</a>
+        </div>
+    </div>
+    {% empty %}
+    <p>Нет преподавателей.</p>
+    {% endfor %}
+</div>
+{% endblock %}

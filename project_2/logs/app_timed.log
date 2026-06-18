@@ -1,0 +1,14 @@
+INFO 2026-05-08 14:32:10 users.signals signals.py:11 - User 'admin' logged in successfully
+INFO 2026-05-08 18:15:18 users.signals signals.py:18 - User 'admin' logged out
+WARNING 2026-05-08 18:20:14 users.views views.py:28 - Registration failed for dsbgkj dsbkgjdksj jdnkgs: <ul class="errorlist"><li>username<ul class="errorlist"><li>Enter a valid username. This value may contain only letters, numbers, and @/./+/-/_ characters.</li></ul></li><li>password2<ul class="errorlist"><li>This password is too short. It must contain at least 8 characters.</li><li>This password is too common.</li><li>This password is entirely numeric.</li></ul></li></ul>
+WARNING 2026-05-08 18:20:34 users.views views.py:28 - Registration failed for Петров Петр Петрович: <ul class="errorlist"><li>username<ul class="errorlist"><li>Enter a valid username. This value may contain only letters, numbers, and @/./+/-/_ characters.</li></ul></li><li>password2<ul class="errorlist"><li>This password is too common.</li><li>This password is entirely numeric.</li></ul></li></ul>
+WARNING 2026-05-08 18:20:55 users.views views.py:28 - Registration failed for Петр: <ul class="errorlist"><li>password2<ul class="errorlist"><li>This password is too common.</li><li>This password is entirely numeric.</li></ul></li></ul>
+INFO 2026-05-08 18:21:19 users.signals signals.py:11 - User 'Петр' logged in successfully
+INFO 2026-05-08 18:21:19 users.views views.py:23 - Successful registration: User 'Петр' registered
+WARNING 2026-05-08 18:27:41 users.views views.py:28 - Registration failed for Петр: <ul class="errorlist"><li>username<ul class="errorlist"><li>A user with that username already exists.</li></ul></li></ul>
+INFO 2026-05-08 18:27:55 users.signals signals.py:11 - User 'Иван' logged in successfully
+INFO 2026-05-08 18:27:55 users.views views.py:23 - Successful registration: User 'Иван' registered
+INFO 2026-05-08 18:32:11 users.signals signals.py:11 - User 'Роман' logged in successfully
+INFO 2026-05-08 18:32:11 users.views views.py:23 - Successful registration: User 'Роман' registered
+INFO 2026-05-08 18:38:53 users.signals signals.py:18 - User 'Роман' logged out
+INFO 2026-05-08 18:41:21 users.signals signals.py:11 - User 'admin' logged in successfully

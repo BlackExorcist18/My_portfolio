@@ -1,0 +1,93 @@
+{% extends 'schedule/base.html' %}
+
+{% block title %}{{ course.name }} - Курс{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center;">
+    <h2>📖 {{ course.name }}</h2>
+    <div>
+        <a href="{% url 'schedule:course_update' course.id %}" class="btn btn-warning">✏️ Редактировать</a>
+        <a href="{% url 'schedule:course_delete' course.id %}" class="btn btn-danger">🗑️ Удалить</a>
+    </div>
+</div>
+
+<div class="card">
+    <h3>Информация о курсе</h3>
+    <table class="table">
+        <tr>
+            <th>Название:</th>
+            <td>{{ course.name }}</td>
+        </tr>
+        <tr>
+            <th>Описание:</th>
+            <td>{{ course.description|linebreaks }}</td>
+        </tr>
+        <tr>
+            <th>Уровень:</th>
+            <td>{{ course.get_level_display }}</td>
+        </tr>
+        <tr>
+            <th>Преподаватель:</th>
+            <td>
+                {% if course.teacher %}
+                    <a href="{% url 'schedule:teacher_detail' course.teacher.id %}">{{ course.teacher.full_name }}</a>
+                {% else %}
+                    Не назначен
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <th>Длительность:</th>
+            <td>{{ course.duration_weeks }} недель</td>
+        </tr>
+        <tr>
+            <th>Цена:</th>
+            <td>{{ course.price }} ₽</td>
+        </tr>
+        <tr>
+            <th>Дата старта:</th>
+            <td>{{ course.start_date|date:"d.m.Y" }}</td>
+        </tr>
+        <tr>
+            <th>Статус:</th>
+            <td>{% if course.is_published %}✅ Опубликован{% else %}❌ Черновик{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Создан:</th>
+            <td>{{ course.created_at|date:"d.m.Y H:i" }}</td>
+        </tr>
+    </table>
+</div>
+
+<div class="card">
+    <h3>🎓 Студенты курса ({{ course.students.count }})</h3>
+    {% if course.students.all %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ФИО</th>
+                <th>Email</th>
+                <th>Телефон</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in course.students.all %}
+            <tr>
+                <td>{{ student.full_name }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.phone|default:"-" }}</td>
+                <td>
+                    <a href="{% url 'schedule:student_detail' student.id %}" class="btn btn-primary">Подробнее</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>На этот курс пока никто не записан.</p>
+    {% endif %}
+</div>
+
+<a href="{% url 'schedule:course_index' %}" class="btn btn-secondary">← Назад к списку</a>
+{% endblock %}

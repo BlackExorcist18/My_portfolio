@@ -1,0 +1,515 @@
+2026-05-08 14:29:07,471 - INFO - Watching for file changes with StatReloader
+2026-05-08 14:30:01,039 - INFO - C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\users\views.py changed, reloading.
+2026-05-08 14:30:01,473 - INFO - Watching for file changes with StatReloader
+2026-05-08 14:30:06,812 - INFO - C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\users\views.py changed, reloading.
+2026-05-08 14:30:07,232 - INFO - Watching for file changes with StatReloader
+2026-05-08 14:31:43,532 - WARNING - Not Found: /favicon.ico
+2026-05-08 18:03:59,085 - INFO - Watching for file changes with StatReloader
+2026-05-08 18:04:03,579 - WARNING - Not Found: /favicon.ico
+2026-05-08 18:08:00,203 - INFO - C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\schedule\forms_lr5.py changed, reloading.
+2026-05-08 18:08:01,068 - INFO - Watching for file changes with StatReloader
+2026-05-08 18:08:05,692 - INFO - C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\schedule\forms_lr5.py changed, reloading.
+2026-05-08 18:08:06,528 - INFO - Watching for file changes with StatReloader
+2026-05-08 18:08:14,311 - INFO - C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\schedule\forms_lr5.py changed, reloading.
+2026-05-08 18:08:15,102 - INFO - Watching for file changes with StatReloader
+2026-05-08 18:08:23,045 - INFO - C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\schedule\forms_lr5.py changed, reloading.
+2026-05-08 18:08:23,906 - INFO - Watching for file changes with StatReloader
+2026-05-08 18:14:53,720 - WARNING - Not Found: /favicon.ico
+2026-05-08 18:15:33,527 - WARNING - Not Found: /index/register/
+2026-05-08 18:15:54,339 - ERROR - Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\users\views.py", line 32, in register
+    return render(request, 'users/register.html', {'form': form})
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    return nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'login' not found. 'login' is not a valid view function or pattern name.
+2026-05-08 18:17:29,558 - INFO - C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\my_project_2\urls.py changed, reloading.
+2026-05-08 18:17:31,462 - INFO - Watching for file changes with StatReloader
+2026-05-08 18:17:36,161 - ERROR - Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\users\views.py", line 32, in register
+    return render(request, 'users/register.html', {'form': form})
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    return nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'register' not found. 'register' is not a valid view function or pattern name.
+2026-05-08 18:17:46,593 - ERROR - Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\users\views.py", line 32, in register
+    return render(request, 'users/register.html', {'form': form})
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    return nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'register' not found. 'register' is not a valid view function or pattern name.
+2026-05-08 18:21:19,670 - ERROR - Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\users\views.py", line 25, in register
+    return redirect('profile')
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\shortcuts.py", line 145, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'profile' not found. 'profile' is not a valid view function or pattern name.
+2026-05-08 18:22:57,998 - INFO - C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\users\views.py changed, reloading.
+2026-05-08 18:22:58,918 - INFO - Watching for file changes with StatReloader
+2026-05-08 18:23:05,417 - WARNING - Forbidden (CSRF token from POST incorrect.): /register/
+2026-05-08 18:24:47,988 - WARNING - Forbidden (CSRF token from POST incorrect.): /register/
+2026-05-08 18:25:31,447 - WARNING - Forbidden (CSRF token from POST incorrect.): /register/
+2026-05-08 18:25:36,402 - WARNING - Forbidden (CSRF token from POST incorrect.): /register/
+2026-05-08 18:27:55,291 - ERROR - Internal Server Error: /profile/
+Traceback (most recent call last):
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\users\views.py", line 91, in profile
+    return render(request, 'users/profile.html', {'user': request.user})
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    return nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'profile' not found. 'profile' is not a valid view function or pattern name.
+2026-05-08 18:28:25,132 - INFO - Watching for file changes with StatReloader
+2026-05-08 18:28:36,735 - ERROR - Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\users\views.py", line 32, in register
+    return render(request, 'users/register.html', {'form': form})
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    return nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'profile' not found. 'profile' is not a valid view function or pattern name.
+2026-05-08 18:29:20,431 - ERROR - Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\urls\base.py", line 71, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'user'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\users\views.py", line 32, in register
+    return render(request, 'users/register.html', {'form': form})
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    return nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\urls\base.py", line 82, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'user' is not a registered namespace
+2026-05-08 18:29:28,660 - ERROR - Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\urls\base.py", line 71, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'user'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\users\views.py", line 32, in register
+    return render(request, 'users/register.html', {'form': form})
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    return nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\urls\base.py", line 82, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'user' is not a registered namespace
+2026-05-08 18:30:52,315 - ERROR - Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\urls\base.py", line 71, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'user'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\users\views.py", line 32, in register
+    return render(request, 'users/register.html', {'form': form})
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    return nodelist.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Exorcist_13\Desktop\Учёба\LoP_6\project_2\.venv\lib\site-packages\django\urls\base.py", line 82, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'user' is not a registered namespace
+2026-05-15 16:35:24,301 - INFO - Watching for file changes with StatReloader
+2026-05-15 16:35:28,974 - WARNING - Not Found: /favicon.ico
+2026-05-15 16:37:00,154 - ERROR - Internal Server Error: /schedule/students/create/
+Traceback (most recent call last):
+  File "C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\schedule\views.py", line 192, in student_create_lr5
+    return render(request, 'schedule/student_form_lr5.html', {
+  File "C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\.venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\.venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\.venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: schedule/student_form_lr5.html
+2026-05-15 16:38:36,628 - ERROR - Internal Server Error: /users/3/add_friend/
+Traceback (most recent call last):
+  File "C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\users\views.py", line 74, in add_friend
+    return redirect('user_detail', pk=pk)
+  File "C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\.venv\lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\.venv\lib\site-packages\django\shortcuts.py", line 145, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\.venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\.venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'user_detail' not found. 'user_detail' is not a valid view function or pattern name.
+2026-05-15 16:40:58,085 - INFO - C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\users\views.py changed, reloading.
+2026-05-15 16:40:58,577 - INFO - Watching for file changes with StatReloader
+2026-05-15 16:43:37,560 - INFO - C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\users\views.py changed, reloading.
+2026-05-15 16:43:38,025 - INFO - Watching for file changes with StatReloader
+2026-05-15 17:10:14,219 - ERROR - Internal Server Error: /users/2/
+Traceback (most recent call last):
+  File "C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\users\views.py", line 109, in user_detail
+    return redirect('user_list')
+  File "C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\.venv\lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\.venv\lib\site-packages\django\shortcuts.py", line 145, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\.venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\.venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'user_list' not found. 'user_list' is not a valid view function or pattern name.
+2026-05-15 17:11:00,033 - INFO - C:\Users\Exorcist_13\Desktop\work\LoP_6\project_2\users\views.py changed, reloading.
+2026-05-15 17:11:01,015 - INFO - Watching for file changes with StatReloader
+2026-05-16 09:16:34,591 - INFO - Watching for file changes with StatReloader
